@@ -33,4 +33,4 @@ Currently No known bugs
 
 MIT License
 
-Copyright (c) 2016 GDB Media, Inc.
+Copyright (c) 2016 Cory Franks, Inc.
