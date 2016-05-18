@@ -26,50 +26,17 @@ public class VenueTest {
     assertEquals("Moda Center", myVenue.getName());
   }
 
-  //
-  // @Test
-  // public void _3() {
-  //   List<String> array1 = new ArrayList<String>();
-  //   array1.add("1/2 cup of water");
-  //   array1.add("1/2 cup of flour");
-  //   array1.add("1/2 cup of milk");
-  //   array1.add("1 cup of sugar");
-  //   array1.add("1/2 tsp. of salt");
-  //   List<String> array2 = new ArrayList<String>();
-  //   array2.add("Mix water");
-  //   array2.add("Mix flour");
-  //   array2.add("Mix Milk");
-  //   array2.add("Mix sugar");
-  //   array2.add("Mix Salt");
-  //   Recipe myRecipe1 = new Recipe("Brisket", array2, array1);
-  //   myRecipe1.save();
-  //   List<String> array3 = new ArrayList<String>();
-  //   array3.add("1 cup of tabasco");
-  //   array3.add("1 cup of habanero");
-  //   array3.add("1 cup of jalepeno");
-  //   List<String> array4 = new ArrayList<String>();
-  //   array4.add("Mix tabasco");
-  //   array4.add("Mix Habernro");
-  //   array4.add("Mix Jalepeno");
-  //   array4.add("Cook at 350");
-  //   array4.add("Let cool for a little bit");
-  //   Recipe myRecipe2 = new Recipe("fire", array4, array3);
-  //   myRecipe2.save();
-  //   List<String> expected1 = new ArrayList<String>();
-  //   expected1.add("1/2 cup of water");
-  //   expected1.add("1/2 cup of flour");
-  //   expected1.add("1/2 cup of milk");
-  //   expected1.add("1 cup of sugar");
-  //   expected1.add("1/2 tsp. of salt");
-  //   List<String> expected2 = new ArrayList<String>();
-  //   expected2.add("Mix water");
-  //   expected2.add("Mix flour");
-  //   expected2.add("Mix Milk");
-  //   expected2.add("Mix sugar");
-  //   expected2.add("Mix Salt");
-  //   assertEquals(expected1, myRecipe1.getIngredients());
-  //   assertEquals(expected2, myRecipe1.getDirections());
-  // }
+  @Test
+  public void getId_VenueInstantiatesWithId_Int() {
+    Venue myVenue = new Venue("Moda Center", "portland");
+    myVenue.save();
+    assertEquals(1, myVenue.getId());
+  }
+
+  @Test
+  public void all_emptyAtFirst_0() {
+    assertEquals(0, Venue.all().size());
+  }
 
   // @Test
   // public void getDescription_taskInstantiatesWithDescription_String() {

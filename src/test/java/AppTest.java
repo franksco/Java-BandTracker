@@ -31,7 +31,7 @@ public class AppTest extends FluentTest {
 
   @Test
   public void bandIsCreatedTest() {
-    Venue myVenue1 = new Venue("Moda Center", "13105");
+    Venue myVenue1 = new Venue("Moda Center", "Portland");
     myVenue1.save();
     goTo("http://localhost:4567/");
     click("a", withText("Add a new Band"));
@@ -44,7 +44,7 @@ public class AppTest extends FluentTest {
 
   @Test
   public void bandIsViewableTest() {
-    Venue myVenue1 = new Venue("Moda Center", "13105");
+    Venue myVenue1 = new Venue("Moda Center", "Portland");
     myVenue1.save();
     goTo("http://localhost:4567/");
     click("a", withText("Add a new Band"));
@@ -55,15 +55,36 @@ public class AppTest extends FluentTest {
     click("a", withText("View All Bands"));
     assertThat(pageSource()).contains("Red Hot Chili Peppers");
   }
-  //
-  // @Test
-  // public void categoryShowPageDisplaysName() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
+
+  @Test
+  public void venueIsCreated() {
+    goTo("http://localhost:4567/");
+    click("a", withText("View Venues"));
+    fill("#name").with("Moda Center");
+    fill("#located").with("Portland");
+    submit(".btn");
+    assertThat(pageSource()).contains("Moda Center");
+  }
+
+
+  @Test
+  public void bandIsCreatedAndAddToVenue() {
+    goTo("http://localhost:4567/");
+    click("a", withText("View Venues"));
+    fill("#name").with("Staples Center");
+    fill("#located").with("Los Angeles");
+    submit(".btn");
+    click("a", withText("Home"));
+    click("a", withText("Add a new Band"));
+    fill("#name").with("Red Hot Chili Peppers");
+    click("label", withText("Staples Center"));
+    submit(".btn");
+    click("a", withText("Home"));
+    click("a", withText("View Venues"));
+    click("a", withText("Staples Center"));
+    assertThat(pageSource()).contains("Red Hot Chili Peppers");
+    assertThat(pageSource()).contains("Staples Center");
+  }
   //
   // @Test
   // public void taskShowPageDisplaysDescription() {

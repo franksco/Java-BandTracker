@@ -24,24 +24,25 @@ public class BandTest {
   }
 
   @Test
-  public void getId_bandInstantiatesWithId_String() {
+  public void getId_bandInstantiatesWithId_Int() {
     String[] array = {"1", "3"};
     Band myBand = new Band("Red Hot Chili Peppers", array);
     myBand.save();
     assertEquals("Red Hot Chili Peppers", myBand.getName());
   }
 
-  // @Test
-  // public void all_emptyAtFirst_0() {
-  //   assertEquals(0, Category.all().size());
-  // }
-  //
-  // @Test
-  // public void equals_returnsTrueIfNamesAretheSame_true() {
-  //   Category firstCategory = new Category("Household chores");
-  //   Category secondCategory = new Category("Household chores");
-  //   assertTrue(firstCategory.equals(secondCategory));
-  // }
+  @Test
+  public void all_emptyAtFirst_0() {
+    assertEquals(0, Band.all().size());
+  }
+
+  @Test
+  public void equals_returnsTrueIfNamesAretheSame_true() {
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    Band myBand2 = new Band("Red Hot Chili Peppers", array);
+    assertTrue(myBand.equals(myBand2));
+  }
   //
   // @Test
   // public void save_savesObjectIntoDatabase_true() {
