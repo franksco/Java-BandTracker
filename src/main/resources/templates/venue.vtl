@@ -1,0 +1,21 @@
+<div class="jumbotron">
+  <h1>$venue.getName()</h1>
+</div>
+<div class="container cback">
+
+  <h2>Located At: $venue.getLocated()</h2>
+
+  <h1>Shows Coming Soon<h1>
+  <ul>
+    #foreach($band in $venue.getBands())
+
+          <li><h3><a href="/bands/$band.getId()">$band.getName()</a><h3></li>
+
+    #end
+  </ul>
+
+  <hr>
+
+  <p><h3><a href="/">Home</a><h3></p>
+
+</div>

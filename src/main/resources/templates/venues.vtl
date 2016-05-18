@@ -1,0 +1,44 @@
+<div class="jumbotron">
+  <h1>All Venues</h1>
+</div>
+<div class="container cback">
+
+#if($venues.size() > 0)
+
+  <div class="row">
+    #set($a = 0)
+    #foreach ($venue in $venues)
+      #if($a == 4)
+        #set($a = 0)
+  </div>
+      #end
+      #set($a = $a+1)
+      #if($venues.getName() != "")
+        <div class="col-sm-3">
+          <li><a href="/venues/$venue.getId()">$venue.getName()</a></li>
+        </div>
+      #end
+    #end
+#else
+<h3>No Venues have been added yet</h3>
+#end
+
+<form action="/venues" method="post">
+  <div class="form-group">
+    <label for="name" class="formlabel">Venue Name</label>
+    <input id="name" name="name" required placeholder="Name of Venue" pattern="^[^\s]+(\s+[^\s]+)*$" class="form-control" type="text">
+  </div>
+  <div class="form-group">
+    <label for="located" class="formlabel">Venue Located</label>
+    <input id="located" name="located" required class="form-control" pattern="^[^\s]+(\s+[^\s]+)*$" placeholder="Location Of Venue" type="text">
+  </div>
+
+  <button type="submit" class="btn btn-mycolor btn-lg">Add New Venue</button>
+
+</form>
+
+<hr>
+
+<p><a href="/">Home</a></p>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <h1>$band.getName()</h1>
+</div>
+<div class="container cback">
+<div class="row">
+
+  <h2>Venues</h2>
+
+  <div class="col-sm-6 align">
+    <form action="/bands/edit/$band.getId()" method="get">
+        <button type="submit" class="btn btn-mycolor btn-lg">Edit</button>
+    </form>
+
+    <form action="delete/$band.getId()" method="post">
+        <input name="type" type="hidden"id class="form-control" value="2">
+        <button type="submit" class="btn btn-mycolor btn-lg">Delete</button>
+    </form>
+  </div>
+
+ #foreach($venue in $band.getVenues())
+  <li><a href="/venues/$venue.getId()">$venue.getName()</a>
+    <ul>
+      <li>Venue Address: $venue.getLocated()</li>
+    </ul></li>
+    <hr>
+  #end
+  <p><a href="/">Home</a></p>
+</div>

@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1>Edit $band.getName()</h1>
+</div>
+<div class="container cback">
+
+  <form action="/bands-edit/$band.getId()" method="post">
+    <div class="form-group">
+      <label type="name" class="formlabel">Edit Band Name Here</label>
+      <input id="name" name="name" required placeholder="Name of Band" value="$band.getName()" pattern="^[^\s]+(\s+[^\s]+)*$" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+      <label for="venues" class="formlabel">Venues</label>
+      <br>
+        <ul>
+        #foreach($venue in $venues)
+            <li>
+                <input type="checkbox" name="venues" class="mycheckbox" id="$venue.getId()" value="$venue.getId()"><label for="$venue.getId()" class="mylabel">$venue.getName()</label>
+            </li>
+          #end
+        </ul>
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-mycolor btn-lg">update</button>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <h1>All Bands</h1>
+</div>
+<div class="container cback">
+
+#if($bands.size() > 0)
+
+  <div class="row">
+    #set($a = 0)
+    #foreach ($band in $bands)
+      #if($a == 4)
+        #set($a = 0)
+  </div>
+      #end
+      #set($a = $a+1)
+      #if($bands.getName() != "")
+        <div class="col-sm-3">
+          <li><a href="/bands/$band.getId()">$band.getName()</a></li>
+        </div>
+      #end
+    #end
+#else
+<h3>No Bands have been added yet</h3>
+#end
+
+</div>
+
+<hr>
+
+<p><a href="/">Home</a></p>
