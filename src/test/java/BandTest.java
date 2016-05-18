@@ -16,12 +16,12 @@ public class BandTest {
     assertEquals(true, myBand instanceof Band);
   }
 
-  // @Test
-  // public void getName_bandInstantiatesWithName_String() {
-  //   String[] array = {"1", "3"};
-  //   Band myBand = new Band("Red Hot Chili Peppers", array);
-  //   assertEquals("Red Hot Chili Peppers", myBand.getName());
-  // }
+  @Test
+  public void getName_bandInstantiatesWithName_String() {
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    assertEquals("Red Hot Chili Peppers", myBand.getName());
+  }
 
   // @Test
   // public void all_emptyAtFirst_0() {

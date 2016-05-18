@@ -29,18 +29,18 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Band Tracker");
   }
 
-  // @Test
-  // public void bandIsCreatedTest() {
-  //   Venue myVenue1 = new Venue("Moda Center", "13105");
-  //   myVenue1.save();
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Add a new Band"));
-  //   fill("#name").with("Red Hot Chili Peppers");
-  //   click("label", withText("Moda Center"));
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Red Hot Chili Peppers");
-  //   assertThat(pageSource()).contains("Moda Center");
-  // }
+  @Test
+  public void bandIsCreatedTest() {
+    Venue myVenue1 = new Venue("Moda Center", "13105");
+    myVenue1.save();
+    goTo("http://localhost:4567/");
+    click("a", withText("Add a new Band"));
+    fill("#name").with("Red Hot Chili Peppers");
+    click("label", withText("Moda Center"));
+    submit(".btn");
+    assertThat(pageSource()).contains("Red Hot Chili Peppers");
+    assertThat(pageSource()).contains("Moda Center");
+  }
   //
   // @Test
   // public void taskIsCreatedTest() {

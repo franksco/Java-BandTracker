@@ -14,6 +14,12 @@ public class VenueTest {
     assertEquals(true, myVenue instanceof Venue);
   }
 
+  @Test
+  public void getName_VenueInstantiatesWithName_String() {
+    Venue myVenue = new Venue("Moda Center", "portland");
+    assertEquals("Moda Center", myVenue.getName());
+  }
+
 
 
   //
