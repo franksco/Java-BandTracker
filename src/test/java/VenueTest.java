@@ -52,30 +52,31 @@ public class VenueTest {
     assertTrue(Venue.all().get(0).equals(myVenue));
   }
 
-  // @Test
-  // public void save_assignsIdToObject_int() {
-  //   Venue myVenue = new Venue("Moda Center", "portland");
-  //   myVenuesave();
-  //   Venue savedVenue = Venueall().get(0);
-  //   assertEquals(myVenuegetId(), savedVenuegetId());
-  // }
+  @Test
+  public void save_assignsIdToObject_int() {
+    Venue myVenue = new Venue("Moda Center", "portland");
+    myVenue.save();
+    Venue savedVenue = Venue.all().get(0);
+    assertEquals(myVenue.getId(), savedVenue.getId());
+  }
 
-  // @Test
-  // public void find_findsVenueInDatabase_true() {
-  //   Venue myVenue = new Venue("Moda Center", "portland");
-  //   myVenuesave();
-  //   Venue savedVenue = Venuefind(myVenuegetId());
-  //   assertTrue(myVenueequals(savedVenue));
-  // }
+  @Test
+  public void find_findsVenueInDatabase_true() {
+    Venue myVenue = new Venue("Moda Center", "portland");
+    myVenue.save();
+    Venue savedVenue = Venue.find(myVenue.getId());
+    assertTrue(myVenue.equals(savedVenue));
+  }
 
-  // @Test
-  // public void getBands_returnsAllBands_List() {
-  //   Venue myVenue = new Venue("Moda Center", "portland"));
-  //   myVenue.save();
-  //   Band myBand = new Band("Red Hot Chili Peppers", array);
-  //   myBand.save();
-  //   List savedBands = myVenue.getBands();
-  //   assertEquals(1, savedBands.size());
-  // }
+  @Test
+  public void getBands_returnsAllBands_List() {
+    Venue myVenue = new Venue("Moda Center", "portland");
+    myVenue.save();
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    myBand.save();
+    List savedBands = myVenue.getBands();
+    assertEquals(1, savedBands.size());
+  }
 
 }

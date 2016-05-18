@@ -62,36 +62,36 @@ public class BandTest {
     assertTrue(myBand.equals(savedBand));
   }
 
-  // @Test
-  // public void update_UpdateBand_true() {
-  //   String[] array = {"1", "3"};
-  //   Band myBand = new Band("Red Hot Chili Peppers", array);
-  //   myBand.save();
-  //   Band savedBand = Band.find(myBand.getId());
-  //   myBand.update("Red Bot Chili Plankers", array);
-  //   assertTrue(myBand.getName() !=myBandcopy.getName());
-  // }
+  @Test
+  public void update_UpdateBand_true() {
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    myBand.save();
+    Band myBand2 = Band.find(myBand.getId());
+    myBand.update("Red Bot Chili Plankers", array);
+    assertTrue(myBand.getName() != myBand2.getName());
+  }
 
-  // @Test
-  // public void getVenues_returnsAllVenues_List() {
-  //   String[] array = {"1", "3"};
-  //   Band myBand = new Band("Red Hot Chili Peppers", array);
-  //   myBand.save();
-  //   Venue myVenue = new Venue("Moda Center", "portland");
-  //   myVenue.save();
-  //   List savedVenues = myBand.getVenues();
-  //   assertEquals(1, savedVenues.size());
-  // }
+  @Test
+  public void getVenues_returnsAllVenues_List() {
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    myBand.save();
+    Venue myVenue = new Venue("Moda Center", "portland");
+    myVenue.save();
+    List savedVenues = myBand.getVenues();
+    assertEquals(1, savedVenues.size());
+  }
 
-  // @Test
-  // public void delete_deletesAllBandsAndVenuesAssociations() {
-  //   String[] array = {"1", "3"};
-  //   Band myBand = new Band("Red Hot Chili Peppers", array);
-  //   myBand.save();
-  //   Venue myVenue = new Venue("Moda Center", "portland");
-  //   myVenue.save();
-  //   myBand.delete();
-  //   assertEquals(0, myVenue.getBands().size());
-  // }
+  @Test
+  public void delete_deletesAllBandsAndVenuesAssociations() {
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    myBand.save();
+    Venue myVenue = new Venue("Moda Center", "portland");
+    myVenue.save();
+    myBand.delete();
+    assertEquals(0, myVenue.getBands().size());
+  }
 
 }
