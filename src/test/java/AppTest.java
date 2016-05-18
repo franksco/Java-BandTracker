@@ -41,17 +41,20 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Red Hot Chili Peppers");
     assertThat(pageSource()).contains("Moda Center");
   }
-  //
-  // @Test
-  // public void taskIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Tasks"));
-  //   fill("#description").with("Mow the lawn");
-  //   fill("#duedate").with("2016-05-14");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  //   assertThat(pageSource()).contains("May 14 2016");
-  // }
+
+  @Test
+  public void bandIsViewableTest() {
+    Venue myVenue1 = new Venue("Moda Center", "13105");
+    myVenue1.save();
+    goTo("http://localhost:4567/");
+    click("a", withText("Add a new Band"));
+    fill("#name").with("Red Hot Chili Peppers");
+    click("label", withText("Moda Center"));
+    submit(".btn");
+    goTo("http://localhost:4567/");
+    click("a", withText("View All Bands"));
+    assertThat(pageSource()).contains("Red Hot Chili Peppers");
+  }
   //
   // @Test
   // public void categoryShowPageDisplaysName() {

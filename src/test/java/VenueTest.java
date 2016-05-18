@@ -20,7 +20,11 @@ public class VenueTest {
     assertEquals("Moda Center", myVenue.getName());
   }
 
-
+  @Test
+  public void getLocation_VenueInstantiatesWithlocation_String() {
+    Venue myVenue = new Venue("Moda Center", "portland");
+    assertEquals("Moda Center", myVenue.getName());
+  }
 
   //
   // @Test

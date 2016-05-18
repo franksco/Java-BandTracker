@@ -23,6 +23,14 @@ public class BandTest {
     assertEquals("Red Hot Chili Peppers", myBand.getName());
   }
 
+  @Test
+  public void getId_bandInstantiatesWithId_String() {
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    myBand.save();
+    assertEquals("Red Hot Chili Peppers", myBand.getName());
+  }
+
   // @Test
   // public void all_emptyAtFirst_0() {
   //   assertEquals(0, Category.all().size());
