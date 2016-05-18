@@ -18,7 +18,7 @@ A web page made in java that allows you to add Bands and Venues, then assign the
 * in your browser go to "localhost:4567"
 
 ## Known Bugs
-Currently doesn't display venues on the add a band page and also when you click on a specific venue in the venues list the page wont display
+Currently No known bugs
 
 ## Technologies Used
 * Velocity Template Engine
