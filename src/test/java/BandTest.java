@@ -53,53 +53,45 @@ public class BandTest {
     assertEquals(myBand.getId(), savedBand.getId());
   }
 
+  @Test
+  public void find_findBandInDatabase_true() {
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    myBand.save();
+    Band savedBand = Band.find(myBand.getId());
+    assertTrue(myBand.equals(savedBand));
+  }
+
   // @Test
-  // public void save_assignsIdToObject_int() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   Category savedCategory = Category.all().get(0);
-  //   assertEquals(myCategory.getId(), savedCategory.getId());
+  // public void update_UpdateBand_true() {
+  //   String[] array = {"1", "3"};
+  //   Band myBand = new Band("Red Hot Chili Peppers", array);
+  //   myBand.save();
+  //   Band savedBand = Band.find(myBand.getId());
+  //   myBand.update("Red Bot Chili Plankers", array);
+  //   assertTrue(myBand.getName() !=myBandcopy.getName());
   // }
-  //
+
   // @Test
-  // public void find_findCategoryInDatabase_true() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   Category savedCategory = Category.find(myCategory.getId());
-  //   assertTrue(myCategory.equals(savedCategory));
+  // public void getVenues_returnsAllVenues_List() {
+  //   String[] array = {"1", "3"};
+  //   Band myBand = new Band("Red Hot Chili Peppers", array);
+  //   myBand.save();
+  //   Venue myVenue = new Venue("Moda Center", "portland");
+  //   myVenue.save();
+  //   List savedVenues = myBand.getVenues();
+  //   assertEquals(1, savedVenues.size());
   // }
-  //
+
   // @Test
-  // public void addTask_addsTaskToCategory_true() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   Task myTask = new Task("Mow the lawn", "2016-05-14");
-  //   myTask.save();
-  //   myCategory.addTask(myTask);
-  //   Task savedTask = myCategory.getTasks().get(0);
-  //   assertTrue(myTask.equals(savedTask));
-  // }
-  //
-  // @Test
-  // public void getTasks_returnsAllTasks_List() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   Task myTask = new Task("Mow the lawn", "2016-05-14");
-  //   myTask.save();
-  //   myCategory.addTask(myTask);
-  //   List savedTasks = myCategory.getTasks();
-  //   assertEquals(1, savedTasks.size());
-  // }
-  //
-  // @Test
-  // public void delete_deletesAllTasksAndCategoriesAssociations() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   Task myTask = new Task("Mow the lawn", "2016-05-14");
-  //   myTask.save();
-  //   myCategory.addTask(myTask);
-  //   myCategory.delete();
-  //   assertEquals(0, myTask.getCategories().size());
+  // public void delete_deletesAllBandsAndVenuesAssociations() {
+  //   String[] array = {"1", "3"};
+  //   Band myBand = new Band("Red Hot Chili Peppers", array);
+  //   myBand.save();
+  //   Venue myVenue = new Venue("Moda Center", "portland");
+  //   myVenue.save();
+  //   myBand.delete();
+  //   assertEquals(0, myVenue.getBands().size());
   // }
 
 }

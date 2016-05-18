@@ -101,33 +101,19 @@ public class AppTest extends FluentTest {
     submit(".btn", withText("Update"));
     assertThat(pageSource()).contains("Red Bot Chili Plankers");
   }
-  //
-  // @Test
-  // public void taskIsAddedToCategory() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   Task testTask = new Task("Mow the lawn", "2016-05-14");
-  //   testTask.save();
-  //   String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
-  //   goTo(url);
-  //   fillSelect("#task_id").withText("Mow the lawn");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("<li>");
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
-  //
-  // @Test
-  // public void categoryIsAddedToTask() {
-  //   Category testCategory = new Category("Household chores");
-  //   testCategory.save();
-  //   Task testTask = new Task("Mow the lawn", "2016-05-14");
-  //   testTask.save();
-  //   String url = String.format("http://localhost:4567/tasks/%d", testTask.getId());
-  //   goTo(url);
-  //   fillSelect("#category_id").withText("Household chores");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("<li>");
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
+
+  @Test
+  public void bandIsDeletedTest() {
+    Venue myVenue1 = new Venue("Staples Center", "Portland");
+    myVenue1.save();
+    goTo("http://localhost:4567/");
+    click("a", withText("Add a new Band"));
+    fill("#name").with("Red Hot Chili Peppers");
+    click("label", withText("Staples Center"));
+    submit(".btn");
+    assertEquals(1, Band.all().size());
+    submit(".btn", withText("Delete"));
+    assertEquals(0, Band.all().size());
+  }
 
 }
