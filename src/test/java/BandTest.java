@@ -43,14 +43,16 @@ public class BandTest {
     Band myBand2 = new Band("Red Hot Chili Peppers", array);
     assertTrue(myBand.equals(myBand2));
   }
-  //
-  // @Test
-  // public void save_savesObjectIntoDatabase_true() {
-  //   Category myCategory = new Category("Household chores");
-  //   myCategory.save();
-  //   assertTrue(Category.all().get(0).equals(myCategory));
-  // }
-  //
+
+  @Test
+  public void save_assignsIdToObject_int() {
+    String[] array = {"1", "3"};
+    Band myBand = new Band("Red Hot Chili Peppers", array);
+    myBand.save();
+    Band savedBand = Band.all().get(0);
+    assertEquals(myBand.getId(), savedBand.getId());
+  }
+
   // @Test
   // public void save_assignsIdToObject_int() {
   //   Category myCategory = new Category("Household chores");

@@ -38,11 +38,12 @@ public class VenueTest {
     assertEquals(0, Venue.all().size());
   }
 
-  // @Test
-  // public void getDescription_taskInstantiatesWithDescription_String() {
-  //   Recipe myRecipe = new Recipe("Mow the lawn", "2016-05-14");
-  //   assertEquals("Mow the lawn", myRecipe.getDescription());
-  // }
+  @Test
+  public void equals_returnsTrueIfNamesAretheSame_true() {
+    Venue myVenue = new Venue("Moda Center", "portland");
+    Venue myVenue2 = new Venue("Moda Center", "portland");
+    assertTrue(myVenue.equals(myVenue2));
+  }
   //
   // @Test
   // public void all_emptyAtFirst_0() {

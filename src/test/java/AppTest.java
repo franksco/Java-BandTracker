@@ -85,15 +85,22 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Red Hot Chili Peppers");
     assertThat(pageSource()).contains("Staples Center");
   }
-  //
-  // @Test
-  // public void taskShowPageDisplaysDescription() {
-  //   Task testTask = new Task("Mow the lawn", "2016-05-14");
-  //   testTask.save();
-  //   String url = String.format("http://localhost:4567/tasks/%d", testTask.getId());
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
+
+  @Test
+  public void bandIsEditedAndViewableTest() {
+    Venue myVenue1 = new Venue("Staples Center", "Portland");
+    myVenue1.save();
+    goTo("http://localhost:4567/");
+    click("a", withText("Add a new Band"));
+    fill("#name").with("Red Hot Chili Peppers");
+    click("label", withText("Staples Center"));
+    submit(".btn");
+    submit(".btn", withText("Edit"));
+    fill("#name").with("Red Bot Chili Plankers");
+    click("label", withText("Staples Center"));
+    submit(".btn", withText("Update"));
+    assertThat(pageSource()).contains("Red Bot Chili Plankers");
+  }
   //
   // @Test
   // public void taskIsAddedToCategory() {
