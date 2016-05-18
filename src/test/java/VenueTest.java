@@ -9,7 +9,7 @@ public class VenueTest {
   public DatabaseRule database = new DatabaseRule();
 
   @Test
-  public void Band_instantiatesCorrectly_true() {
+  public void Venue_instantiatesCorrectly_true() {
     Venue myVenue = new Venue("Moda Center", "13105");
     assertEquals(true, myVenue instanceof Venue);
   }

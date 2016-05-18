@@ -15,13 +15,14 @@ public class BandTest {
     Band myBand = new Band("Red Hot Chili Peppers", array);
     assertEquals(true, myBand instanceof Band);
   }
-  //
+
   // @Test
-  // public void getName_categoryInstantiatesWithName_String() {
-  //   Category myCategory = new Category("Household chores");
-  //   assertEquals("Household chores", myCategory.getName());
+  // public void getName_bandInstantiatesWithName_String() {
+  //   String[] array = {"1", "3"};
+  //   Band myBand = new Band("Red Hot Chili Peppers", array);
+  //   assertEquals("Red Hot Chili Peppers", myBand.getName());
   // }
-  //
+
   // @Test
   // public void all_emptyAtFirst_0() {
   //   assertEquals(0, Category.all().size());
