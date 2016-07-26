@@ -17,6 +17,10 @@ A web page made in java that allows you to add Bands and Venues, then assign the
 * enter "gradle run" in the repositories directory
 * in your browser go to "localhost:4567"
 
+## Support and contact details
+
+You can contact Cory Franks at franksco39@gmail.com
+
 ## Known Bugs
 Currently No known bugs
 
